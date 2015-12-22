@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'tuxedo/version'
 require 'active_support/concern'
 require 'active_support/inflector'
@@ -5,8 +6,8 @@ require 'active_support/core_ext/module/delegation'
 require 'charlatan'
 
 require 'tuxedo/config'
-require 'tuxedo/railitie' if defined?(Rails::Railtie)
 require 'tuxedo/action_view/helpers'
+require 'tuxedo/railtie' if defined?(Rails)
 
 # Tuxedo main module
 # To use Tuxedo include it in any Ruby Object
