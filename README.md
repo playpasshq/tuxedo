@@ -14,8 +14,10 @@ Currently only rails 4.2 and up is supported and a ruby version of 2.2.0 or high
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tuxedo-decorate'
+gem 'tuxedo_decorate', require: 'tuxedo'
 ```
+
+**Notice the require statement!**
 
 And then execute:
 
@@ -23,7 +25,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install tuxedo-decorate
+    $ gem install tuxedo_decorate
 
 ## Usage
 
@@ -85,7 +87,10 @@ class ApplicationPresenter
   include Tuxedo
 
   # Here we setup our typical delegation methods
-  delegate(:current_user, :link_to, to: :_h)
+  delegate(:current_user,
+    :link_to,
+    :content_tag,
+    to: :_h)
 
   # Bunch of shared methods
   def html_id
