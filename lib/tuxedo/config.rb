@@ -3,11 +3,13 @@ require 'active_support/configurable'
 module Tuxedo
   # Configures global settings for Tuxedo
   #
+  # @example
+  #
   #   Tuxedo.configure do |config|
-  #     config.namespace = 'Presenter'
+  #     config.suffix = 'Presenter'
   #   end
   #
-  # @param [block] block to yield
+  # @return [Tuxedo::Configuration]
   #
   def self.configure
     yield @config ||= Tuxedo::Configuration.new
@@ -24,6 +26,6 @@ module Tuxedo
   # @api private
   class Configuration
     include ActiveSupport::Configurable
-    config_accessor(:namespace) { 'Presenter' }
+    config_accessor(:suffix) { 'Presenter' }
   end
 end
