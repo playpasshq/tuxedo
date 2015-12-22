@@ -121,7 +121,7 @@ somewhere in the Rails initialization chain
 
 ```ruby
 Tuxedo.configure do |config|
-  config.namespace = 'ObscureName'
+  config.suffix = 'ObscureName'
 end
 ```
 
@@ -150,6 +150,24 @@ class BananaPresenter
 
   def greetings
     "hello #{monkey.name}"
+  end
+end
+```
+
+### Can I use `prac` inside my Presenters?
+Sure you can, for your convenience `prac`` is made available. This allows you to reuse
+presenter methods.
+
+```ruby
+class BananaPresenter
+  def name
+    "BANANA BANANA BANANA"
+  end
+end
+
+class MonkeyPresenter
+  def eat
+    prac monkey.banana, :name
   end
 end
 ```
