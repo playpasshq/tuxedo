@@ -1,15 +1,19 @@
-# Tuxedo
+# Tuxedo Decorate
+[![Build Status](https://travis-ci.org/playpasshq/tuxedo.svg)](https://travis-ci.org/playpasshq/tuxedo)
+[![Code Climate](https://codeclimate.com/github/playpasshq/tuxedo/badges/gpa.svg)](https://codeclimate.com/github/playpasshq/tuxedo)
+[![Inline docs](http://inch-ci.org/github/playpasshq/tuxedo.png)](http://inch-ci.org/github/playpasshq/tuxedo)
+[![Gem Version](https://badge.fury.io/rb/tuxedo-decorate.svg)](https://badge.fury.io/rb/tuxedo-decorate)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tuxedo`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Tuxedo Decorate provides an easy to use `Presenter` layer on top of Rails views.
+It does not make any assumptions about your underline object or uses black
+magic voodoo code to determine your ActiveRecord Relations.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tuxedo'
+gem 'tuxedo-decorate'
 ```
 
 And then execute:

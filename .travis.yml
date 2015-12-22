@@ -11,3 +11,5 @@ gemfile:
   - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_stable.gemfile
 script: "bundle exec rake spec"
+code_climate:
+  repo_token: 344f2a60a2920e96f71877b87829836b01a44e1e94463cde54e2c54e8f389f79
