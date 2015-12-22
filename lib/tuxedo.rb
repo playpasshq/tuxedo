@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'tuxedo/version'
 require 'active_support/concern'
 require 'active_support/inflector'
@@ -5,9 +6,26 @@ require 'active_support/core_ext/module/delegation'
 require 'charlatan'
 
 require 'tuxedo/config'
-require 'tuxedo/railitie' if defined?(Rails::Railtie)
 require 'tuxedo/action_view/helpers'
+require 'tuxedo/railtie' if defined?(Rails)
 
+# Tuxedo main module
+# To use Tuxedo include it in any Ruby Object
+#
+# @example
+#
+#   class BananaPresenter
+#     include Tuxedo
+#
+#     def name
+#       'hello'
+#     end
+#
+#     def name_with_args(name, surname: '')
+#       "hello #{name}, #{surname}"
+#     end
+#   end
+#
 module Tuxedo
   extend ActiveSupport::Concern
 
@@ -40,7 +58,7 @@ module Tuxedo
     # @return [String]
     #
     def underscored_name
-      name.demodulize.gsub(Tuxedo.config.namespace, '').underscore
+      name.demodulize.gsub(Tuxedo.config.suffix, '').underscore
     end
 
     # @api private

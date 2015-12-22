@@ -1,5 +1,13 @@
 module Tuxedo
   module ActionView
+    # Main module for the ActionView helpers
+    #
+    # @example
+    #
+    #   presenter_for(instance)
+    #
+    #   prac(instance, method, *args)
+    #
     module Helpers
 
       # We can use this to give a block and wrap all the presenter methods in the block
@@ -12,7 +20,7 @@ module Tuxedo
       #
       def presenter_for(model, klass = nil)
         return if model.nil?
-        klass ||= "#{model.class.name}#{Tuxedo.config.namespace}".constantize
+        klass ||= "#{model.class.name}#{Tuxedo.config.suffix}".constantize
         presenter = klass.new(model, self)
         yield presenter if block_given?
         presenter
