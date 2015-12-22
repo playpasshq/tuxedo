@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'tuxedo/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "tuxedo-decorate"
+  gem.name          = "tuxedo_decorate"
   gem.version       = Tuxedo::VERSION
   gem.authors       = ["Jan Stevens"]
   gem.email         = ["jan@playpass.be"]
@@ -22,8 +22,6 @@ Gem::Specification.new do |gem|
   end
 
   gem.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|gem|features)/}) }
-  gem.bindir        = "exe"
-  gem.executables   = gem.files.grep(%r{^exe/}) { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|gem|features)/})
   gem.require_paths = ["lib"]
 
