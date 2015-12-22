@@ -7,7 +7,6 @@ rvm:
   - 2.2.3
   - 2.2.4
 gemfile:
-  - gemfiles/rails_4.1.gemfile
   - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_stable.gemfile
 script: "bundle exec rake spec"
