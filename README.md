@@ -10,7 +10,7 @@ magic voodoo code to determine your ActiveRecord Relations.
 
 ## Installation
 
-Currently only rails 4.2 and up is supported and a ruby version of 2.2.0 or higher.
+Currently rails 4.0 or higher and ruby version of 2.0.0 or higher are supported.
 Add this line to your application's Gemfile:
 
 ```ruby
