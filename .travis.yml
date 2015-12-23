@@ -1,9 +1,12 @@
 language: ruby
 sudo: false
 rvm:
+  - 2.0.0
   - 2.2.0
   - 2.2.4
 gemfile:
+  - gemfiles/rails_4.0.gemfile
+  - gemfiles/rails_4.1.gemfile
   - gemfiles/rails_4.2.gemfile
   - gemfiles/rails_stable.gemfile
 script: "bundle exec rake spec"

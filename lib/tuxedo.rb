@@ -1,6 +1,5 @@
 require 'bundler/setup'
 require 'tuxedo/version'
-require 'active_support/concern'
 require 'active_support/inflector'
 require 'active_support/core_ext/module/delegation'
 require 'charlatan'
@@ -27,9 +26,7 @@ require 'tuxedo/railtie' if defined?(Rails)
 #   end
 #
 module Tuxedo
-  extend ActiveSupport::Concern
-
-  included do
+  module InstanceMethods
     include Charlatan.new(:object)
 
     # Initializes a new Tuxedo class using the to decorate object and the view context
@@ -41,9 +38,28 @@ module Tuxedo
       @view_context = view_context
       self.class.setup_alias_method
     end
+
+    # Helper method that delegates to the view context
+    # this allows you to call the url helpers from Rails
+    #
+    #   _h.link_to ...
+    #
+    # @return [ActionView::Context]
+    #
+    def _h
+      @view_context
+    end
+
+    # Define delegations of our prac helper to the view context, allows to call prac inside the
+    # presenters
+    delegate(:prac, to: :_h)
+
+    # These methods are already defined on Object by default or by rails, so we
+    # have to explicitly delegate them to the model.
+    delegate(:to_param, to: :object)
   end
 
-  class_methods do
+  module ClassMethods
     # Alias method name for accessing the original object
     # Defaults to guessing the name from the class
     #
@@ -70,22 +86,12 @@ module Tuxedo
     end
   end
 
-  # Helper method that delegates to the view context
-  # this allows you to call the url helpers from Rails
+  # When included, extend the {ClassMethods} and include the {InstanceMethods}
   #
-  #   _h.link_to ...
+  # @param [Klass] base
   #
-  # @return [ActionView::Context]
-  #
-  def _h
-    @view_context
+  def self.included(base)
+    base.include(InstanceMethods)
+    base.extend(ClassMethods)
   end
-
-  # Define delegations of our prac helper to the view context, allows to call prac inside the
-  # presenters
-  delegate(:prac, to: :_h)
-
-  # These methods are already defined on Object by default or by rails, so we
-  # have to explicitly delegate them to the model.
-  delegate(:to_param, to: :object)
 end
