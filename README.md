@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/playpasshq/tuxedo.svg)](https://travis-ci.org/playpasshq/tuxedo)
 [![Code Climate](https://codeclimate.com/github/playpasshq/tuxedo/badges/gpa.svg)](https://codeclimate.com/github/playpasshq/tuxedo)
 [![Inline docs](http://inch-ci.org/github/playpasshq/tuxedo.png)](http://inch-ci.org/github/playpasshq/tuxedo)
-[![Gem Version](https://badge.fury.io/rb/tuxedo-decorate.svg)](https://badge.fury.io/rb/tuxedo-decorate)
+[![Gem Version](https://badge.fury.io/rb/tuxedo_decorate.svg)](https://badge.fury.io/rb/tuxedo_decorate)
 
 Tuxedo Decorate provides an easy to use `Presenter` layer on top of Rails views.
 It does not make any assumptions about your underline object or uses black
@@ -10,7 +10,7 @@ magic voodoo code to determine your ActiveRecord Relations.
 
 ## Installation
 
-Currently only rails 4.2 and up is supported and a ruby version of 2.2.0 or higher.
+Currently rails 4.0 or higher and ruby version of 2.0.0 or higher are supported.
 Add this line to your application's Gemfile:
 
 ```ruby
