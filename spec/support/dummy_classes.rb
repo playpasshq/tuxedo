@@ -1,4 +1,7 @@
 class Dummy
+  def to_param
+    2
+  end
 end
 
 class DummyPresenter
