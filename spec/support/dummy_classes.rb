@@ -22,5 +22,4 @@ class ApplicationPresenter
 end
 
 class OverwriteNamePresenter < ApplicationPresenter
-
 end

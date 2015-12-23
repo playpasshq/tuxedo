@@ -9,10 +9,10 @@ module Tuxedo
     #   prac(instance, method, *args)
     #
     module Helpers
-
-      # We can use this to give a block and wrap all the presenter methods in the block
-      # This shows clearly that we are using a presenter without the explicit assign statement
-      # Some magic happens to initiate a new presenter with the model and the view context
+      # We can use this to give a block and wrap all the presenter methods
+      # in the block. This shows clearly that we are using a presenter
+      # without the explicit assign statement. Some magic happens to initiate
+      # a new presenter with the model and the view context
       #
       # @param model[Object] any type of object that needs to be presented
       # @param klass [KlassName] a different presenter klass
