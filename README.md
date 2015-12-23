@@ -1,6 +1,7 @@
 # Tuxedo Decorate
 [![Build Status](https://travis-ci.org/playpasshq/tuxedo.svg)](https://travis-ci.org/playpasshq/tuxedo)
 [![Code Climate](https://codeclimate.com/github/playpasshq/tuxedo/badges/gpa.svg)](https://codeclimate.com/github/playpasshq/tuxedo)
+[![Test Coverage](https://codeclimate.com/github/playpasshq/tuxedo/badges/coverage.svg)](https://codeclimate.com/github/playpasshq/tuxedo/coverage)
 [![Inline docs](http://inch-ci.org/github/playpasshq/tuxedo.png)](http://inch-ci.org/github/playpasshq/tuxedo)
 [![Gem Version](https://badge.fury.io/rb/tuxedo_decorate.svg)](https://badge.fury.io/rb/tuxedo_decorate)
 
