@@ -91,7 +91,7 @@ module Tuxedo
   # @param [Klass] base
   #
   def self.included(base)
-    base.include(InstanceMethods)
+    base.send(:include, InstanceMethods)
     base.extend(ClassMethods)
   end
 end
