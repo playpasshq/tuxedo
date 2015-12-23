@@ -6,8 +6,8 @@ require 'tuxedo/version'
 Gem::Specification.new do |gem|
   gem.name          = 'tuxedo_decorate'
   gem.version       = Tuxedo::VERSION
-  gem.authors       = ['Jan Stevens']
-  gem.email         = ['jan@playpass.be']
+  gem.authors       = ['Jan Stevens', 'Maarten Claes']
+  gem.email         = ['jan@playpass.be', 'mcls@playpass.be']
 
   gem.summary       = 'Tuxedo simple presenter logic under 150 LOC'
   gem.homepage      = 'https://github.com/playpasshq/tuxedo'
