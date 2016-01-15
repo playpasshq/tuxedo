@@ -12,4 +12,5 @@ gem 'rubocop', '~> 0.35.0'
 
 group :test do
   gem 'codeclimate-test-reporter', require: false
+  gem 'benchmark-ips', require: false
 end
