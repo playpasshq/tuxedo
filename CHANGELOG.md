@@ -2,6 +2,9 @@
 ## Unreleased
 - Add your entry here!
 
+## v0.4.0
+- Fixes #3: Using `alias_method` instead of `define_method` to improve performance
+
 ## v0.3.0
 - The born of the changelog
 - Refactored Tuxedo to not use `AS::Concern`, this allows to support rails 4.0 and up.
