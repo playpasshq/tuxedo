@@ -79,10 +79,9 @@ module Tuxedo
 
     # @api private
     # This setup (after initialize) a new method for accessing the original object
-    # alias_method wont work well with inheritance/includes/extends
     #
     def setup_alias_method(name = underscored_name)
-      define_method(name) { object }
+      alias_method(name, :object)
     end
   end
 
