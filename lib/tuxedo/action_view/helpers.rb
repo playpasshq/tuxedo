@@ -33,7 +33,7 @@ module Tuxedo
       #
       # @example
       #
-      #   prac object :zone_label
+      #   prac object, :zone_label
       #
       # @param object [Object]
       # @param method [method] the method we should call on the presentor
