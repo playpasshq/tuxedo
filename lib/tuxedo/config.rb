@@ -1,5 +1,6 @@
 require 'active_support/configurable'
 
+# Tuxedo main module
 module Tuxedo
   # Configures global settings for Tuxedo
   #
