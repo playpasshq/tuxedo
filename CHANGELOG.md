@@ -2,6 +2,11 @@
 ## Unreleased
 - Add your entry here!
 
+## v0.5.0
+- Updated Travis to build on latest ruby/jruby version
+- Updated dependencies
+- Also test on Rails 5 (Tuxedo is Rails 5.0 ready)
+
 ## v0.4.0
 - Fixes #3: Using `alias_method` instead of `define_method` to improve performance
 
