@@ -26,10 +26,12 @@ require 'tuxedo/railtie' if defined?(Rails)
 #   end
 #
 module Tuxedo
+  # InstanceMethods that are available in every presenter
   module InstanceMethods
     include Charlatan.new(:object)
 
-    # Initializes a new Tuxedo class using the to decorate object and the view context
+    # Initializes a new Tuxedo class using the to decorate object
+    # and the view context
     # @param [Object] object to decorate
     # @param [ActionView::Context] view_context
     #
@@ -50,8 +52,8 @@ module Tuxedo
       @view_context
     end
 
-    # Define delegations of our prac helper to the view context, allows to call prac inside the
-    # presenters
+    # Define delegations of our prac helper to the view context,
+    # allows to call prac inside the presenters
     delegate(:prac, to: :_h)
 
     # These methods are already defined on Object by default or by rails, so we
@@ -59,6 +61,7 @@ module Tuxedo
     delegate(:to_param, to: :object)
   end
 
+  # ClassMethods that are available in every presenter
   module ClassMethods
     # Alias method name for accessing the original object
     # Defaults to guessing the name from the class
@@ -78,7 +81,7 @@ module Tuxedo
     end
 
     # @api private
-    # This setup (after initialize) a new method for accessing the original object
+    # Setup (after initialize) a new method for accessing the original object
     #
     def setup_alias_method(name = underscored_name)
       alias_method(name, :object)

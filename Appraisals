@@ -14,6 +14,6 @@ appraise "rails-4.2" do
 end
 
 appraise "rails-stable" do
-  gem 'activesupport', '4.2.5'
-  gem 'railties', '4.2.5'
+  gem 'activesupport', '5.0.0'
+  gem 'railties', '5.0.0'
 end
