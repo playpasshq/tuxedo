@@ -8,8 +8,8 @@ gem "yard", "~> 0.8"
 gem "simplecov", "~> 0.10"
 gem "appraisal", "~> 2.1.0"
 gem "rubocop", "~> 0.35.0"
-gem "activesupport", "4.1.0"
-gem "railties", "4.1.0"
+gem "activesupport", "7.0.4"
+gem "railties", "7.0.4"
 
 group :test do
   gem "codeclimate-test-reporter", :require => false
