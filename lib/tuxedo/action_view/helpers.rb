@@ -6,7 +6,7 @@ module Tuxedo
     #
     #   presenter_for(instance)
     #
-    #   prac(instance, method, *args)
+    #   prac(instance, method, *args, **kwargs)
     #
     module Helpers
       # We can use this to give a block and wrap all the presenter methods
@@ -39,9 +39,9 @@ module Tuxedo
       # @param method [method] the method we should call on the presentor
       # @param args [Hash] optional arguments for the method
       #
-      def prac(object, method, *args)
+      def prac(object, method, *args, **kwargs)
         return if object.nil? || method.nil?
-        presenter_for(object).send(method.to_sym, *args)
+        presenter_for(object).send(method.to_sym, *args, **kwargs)
       end
     end
   end
