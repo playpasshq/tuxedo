@@ -4,6 +4,10 @@
 
 - Add your entry here!
 
+## v0.7.0
+
+- Test on supported Rails and Ruby versions with Github Actions
+
 ## v0.6.0
 
 - Test on Rails 6.1 and 7.0 only
