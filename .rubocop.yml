@@ -4,3 +4,4 @@ AllCops:
   Exclude:
     - 'spec/**/*'
     - 'bin/*'
+  NewCops: enable
