@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tuxedo
   module ActionView
     # Main module for the ActionView helpers
@@ -20,6 +22,7 @@ module Tuxedo
       #
       def presenter_for(model, klass = nil)
         return if model.nil?
+
         klass ||= "#{model.class.name}#{Tuxedo.config.suffix}".constantize
         presenter = klass.new(model, self)
         yield presenter if block_given?
@@ -39,9 +42,10 @@ module Tuxedo
       # @param method [method] the method we should call on the presentor
       # @param args [Hash] optional arguments for the method
       #
-      def prac(object, method, *args, **kwargs)
+      def prac(object, method, *, **)
         return if object.nil? || method.nil?
-        presenter_for(object).send(method.to_sym, *args, **kwargs)
+
+        presenter_for(object).send(method.to_sym, *, **)
       end
     end
   end

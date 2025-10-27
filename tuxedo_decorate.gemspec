@@ -1,5 +1,6 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'tuxedo/version'
 
@@ -14,14 +15,15 @@ Gem::Specification.new do |gem|
   gem.license = 'MIT'
 
   gem.metadata['allowed_push_host'] = 'https://rubygems.org'
+  gem.metadata['rubygems_mfa_required'] = 'true'
 
   gem.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|gem|features)/})
   end
-  gem.test_files = gem.files.grep(%r{^(test|gem|features)/})
   gem.require_paths = ['lib']
 
   gem.add_dependency 'activesupport', '>= 6.1.0'
-  gem.add_dependency 'railties', '>= 6.1.0'
   gem.add_dependency 'charlatan', '~> 0.1.0'
+  gem.add_dependency 'dry-configurable'
+  gem.add_dependency 'railties', '>= 6.1.0'
 end

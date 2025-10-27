@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'tuxedo/version'
 require 'active_support/inflector'
 require 'active_support/core_ext/module/delegation'
 require 'charlatan'
 
-require 'tuxedo/config'
+require 'dry-configurable'
 require 'tuxedo/action_view/helpers'
 require 'tuxedo/railtie' if defined?(Rails)
 
@@ -26,6 +28,10 @@ require 'tuxedo/railtie' if defined?(Rails)
 #   end
 #
 module Tuxedo
+  extend Dry::Configurable
+
+  setting :suffix, default: 'Presenter'
+
   # InstanceMethods that are available in every presenter
   module InstanceMethods
     include Charlatan.new(:object)
