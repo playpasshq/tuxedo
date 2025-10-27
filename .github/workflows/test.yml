@@ -1,5 +1,5 @@
 name: Test
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   test:
     strategy:
@@ -22,4 +22,4 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true # runs bundle install and caches installed gems automatically
-      - run: bundle exec rake
+      - run: bundle exec rake spec
