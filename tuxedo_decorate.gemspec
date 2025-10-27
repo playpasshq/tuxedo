@@ -22,6 +22,8 @@ Gem::Specification.new do |gem|
   end
   gem.require_paths = ['lib']
 
+  gem.required_ruby_version = '>= 3.2.0'
+
   gem.add_dependency 'activesupport', '>= 6.1.0'
   gem.add_dependency 'charlatan', '~> 0.1.0'
   gem.add_dependency 'dry-configurable'

@@ -6,3 +6,4 @@ AllCops:
     - 'bin/*'
     - vendor/**/*
   NewCops: enable
+  SuggestExtensions: false
