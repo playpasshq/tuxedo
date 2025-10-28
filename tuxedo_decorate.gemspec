@@ -14,8 +14,9 @@ Gem::Specification.new do |gem|
   gem.homepage = 'https://github.com/playpasshq/tuxedo'
   gem.license = 'MIT'
 
-  gem.metadata['allowed_push_host'] = 'https://rubygems.org'
+  gem.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/playpasshq'
   gem.metadata['rubygems_mfa_required'] = 'true'
+  gem.metadata['github_repo'] = 'ssh://github.com/playpasshq/tuxedo'
 
   gem.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|gem|features)/})
