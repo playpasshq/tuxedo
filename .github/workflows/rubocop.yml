@@ -1,0 +1,17 @@
+name: Rubocop
+
+on:
+  pull_request: {}
+  workflow_call: {}
+
+jobs:
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems
+      - name: Run RuboCop
+        run: bundle exec rubocop

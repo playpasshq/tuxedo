@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 # Tuxedo main module
 module Tuxedo
-  VERSION = '0.5.0'.freeze
+  VERSION = '0.7.0'
 end

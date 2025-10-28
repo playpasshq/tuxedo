@@ -1,19 +1,19 @@
-appraise "rails-4.0" do
-  gem 'activesupport', '4.0.0'
-  gem 'railties', '4.0.0'
+# frozen_string_literal: true
+
+appraise 'rails-8.1' do
+  gem 'activesupport', '8.1.0'
+  gem 'railties', '8.1.0'
+  gem 'dry-configurable'
 end
 
-appraise "rails-4.1" do
-  gem 'activesupport', '4.1.0'
-  gem 'railties', '4.1.0'
+appraise 'rails-8.0' do
+  gem 'activesupport', '8.0.3'
+  gem 'railties', '8.0.3'
+  gem 'dry-configurable'
 end
 
-appraise "rails-4.2" do
-  gem 'activesupport', '4.2.0'
-  gem 'railties', '4.2.0'
-end
-
-appraise "rails-stable" do
-  gem 'activesupport', '5.0.0'
-  gem 'railties', '5.0.0'
+appraise 'rails-7.2' do
+  gem 'activesupport', '7.2.2.2'
+  gem 'railties', '7.2.2.2'
+  gem 'dry-configurable'
 end

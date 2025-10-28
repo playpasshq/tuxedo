@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'tuxedo/version'
 require 'active_support/inflector'
-require 'active_support/core_ext/module/delegation'
 require 'charlatan'
+require 'forwardable'
 
-require 'tuxedo/config'
+require 'dry-configurable'
 require 'tuxedo/action_view/helpers'
 require 'tuxedo/railtie' if defined?(Rails)
 
@@ -26,8 +28,13 @@ require 'tuxedo/railtie' if defined?(Rails)
 #   end
 #
 module Tuxedo
+  extend Dry::Configurable
+
+  setting :suffix, default: 'Presenter'
+
   # InstanceMethods that are available in every presenter
   module InstanceMethods
+    extend Forwardable
     include Charlatan.new(:object)
 
     # Initializes a new Tuxedo class using the to decorate object
@@ -54,11 +61,11 @@ module Tuxedo
 
     # Define delegations of our prac helper to the view context,
     # allows to call prac inside the presenters
-    delegate(:prac, to: :_h)
+    def_delegator :_h, :prac
 
     # These methods are already defined on Object by default or by rails, so we
     # have to explicitly delegate them to the model.
-    delegate(:to_param, to: :object)
+    def_delegator :object, :to_param
   end
 
   # ClassMethods that are available in every presenter

@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  pull_request: {}
+  workflow_call: {}
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        gemfile:
+          - gemfiles/rails_8.1.gemfile
+          - gemfiles/rails_8.0.gemfile
+          - gemfiles/rails_7.2.gemfile
+        ruby:
+          - '3.4'
+          - '3.3'
+          - '3.2'
+    runs-on: ubuntu-latest
+    env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true # runs bundle install and caches installed gems automatically
+      - run: bundle exec rake spec

@@ -4,3 +4,6 @@ AllCops:
   Exclude:
     - 'spec/**/*'
     - 'bin/*'
+    - vendor/**/*
+  NewCops: enable
+  SuggestExtensions: false
