@@ -1,5 +1,9 @@
 name: Rubocop
-on: [pull_request]
+
+on:
+  pull_request: {}
+  workflow_call: {}
+
 jobs:
   rubocop:
     name: Rubocop
@@ -8,7 +12,6 @@ jobs:
       - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4
           bundler-cache: true # runs 'bundle install' and caches installed gems
       - name: Run RuboCop
         run: bundle exec rubocop

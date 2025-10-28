@@ -1,5 +1,9 @@
 name: Test
-on: [pull_request]
+
+on:
+  pull_request: {}
+  workflow_call: {}
+
 jobs:
   test:
     strategy:
@@ -17,7 +21,7 @@ jobs:
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}

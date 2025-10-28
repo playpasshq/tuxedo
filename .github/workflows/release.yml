@@ -1,0 +1,48 @@
+name: Gem Build and Release
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  tests:
+    name: Test
+    uses: ./.github/workflows/test.yml
+
+  analyzers:
+    name: Rubocop
+    uses: ./.github/workflows/rubocop.yml
+
+  release:
+    name: Gem / Release
+    needs: [tests, analyzers] # Only release IF the tests pass
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems
+      - uses: fac/ruby-gem-setup-credentials-action@v2
+        with:
+          token: ${{ secrets.github_token }}
+
+      - name: Build Gem
+        run: bundle exec rake build
+
+      # Release production gem version from default branch
+      - name: Release Gem
+        if: github.ref == 'refs/heads/master'
+        uses: fac/ruby-gem-push-action@v2
+        with:
+          key: github
+
+      # PR branch builds will release pre-release gems
+      - name: Pre-Release Gem
+        if: github.ref != 'refs/heads/master'
+        uses: fac/ruby-gem-push-action@v2
+        with:
+          key: github
+          pre-release: true
